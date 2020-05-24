@@ -1,13 +1,12 @@
 {
-  "name": "node-typescript-basic-template",
+  "name": "node-typescript-express-template",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/DestroyeerU/node-typescript-basic-template.git",
-  "author": "DestroyeerU <destroyeeru18@gmail.com>",
+  "repository": "https://github.com/NicolasLopes7/node-typescript-basic-template.git",
+  "author": "Nicolas Lopes Aquino <nicolaslopesbusiness@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts",
-    "dev:debug": "nodemon --inspect src/server.js"
+    "dev": "ts-node-dev -r tsconfig-paths/register src/server.ts"
   },
   "dependencies": {
     "express": "^4.17.1",

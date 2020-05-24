@@ -1,4 +1,4 @@
-const path = require('path');
+import { path } from 'path';
 
 const baseUrl = path.resolve(__dirname, 'src');
 

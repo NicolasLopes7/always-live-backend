@@ -9,9 +9,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
   ],
-  plugins: [
-    'prettier'
-  ],
+  plugins: ['prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -24,23 +22,25 @@ module.exports = {
     'prettier/prettier': 'error',
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
-    'camelcase': 'off',
+    camelcase: 'off',
     'no-unused-vars': [
-      'error', {
-        'argsIgnorePatterns': 'next'
-      }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
+      'error',
       {
-        "ts": "never",
-      }
+        argsIgnorePatterns: 'next',
+      },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+      },
     ],
 
     'import/prefer-default-export': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
+    // '@typescript-eslint/no-var-requires': 'off',
   },
   settings: {
     'import/parsers': {
