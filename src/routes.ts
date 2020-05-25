@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import UserController from '~/Controllers/UserController';
+import SiteController from '~/Controllers/SiteController';
 
 const routes = Router();
 
-routes.get('/', UserController.index);
+routes.post('/addSite', SiteController.store);
 
 export default routes;

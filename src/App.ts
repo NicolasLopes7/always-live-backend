@@ -1,10 +1,34 @@
 import express from 'express';
-
+import cors from 'cors';
+import mongoose from 'mongoose';
 import routes from './routes';
 
-const server = express();
+class App {
+  public express: express.Application;
 
-server.use(express.json());
-server.use(routes);
+  public constructor() {
+    this.express = express();
+    this.middlewares();
+    this.routes();
+  }
 
-export default server;
+  private middlewares() {
+    this.express.use(express.json());
+    this.express.use(cors());
+  }
+
+  private database() {
+    mongoose.connect(
+      'mongodb+srv://admin:admin@cluster0-xb1ss.mongodb.net/always-live?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
+  }
+
+  private routes() {
+    this.express.use(routes);
+  }
+}
+export default new App().express;
