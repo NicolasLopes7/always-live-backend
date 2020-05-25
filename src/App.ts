@@ -10,6 +10,7 @@ class App {
     this.express = express();
     this.middlewares();
     this.routes();
+    this.database();
   }
 
   private middlewares() {
@@ -19,7 +20,7 @@ class App {
 
   private database() {
     mongoose.connect(
-      'mongodb+srv://admin:admin@cluster0-xb1ss.mongodb.net/always-live?retryWrites=true&w=majority',
+      'mongodb+srv://admin:admin@cluster0-xb1ss.mongodb.net/alwayslive?retryWrites=true&w=majority',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

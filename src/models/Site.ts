@@ -1,8 +1,16 @@
-import mongoose from 'mongoose';
+import { Schema, model, Document } from 'mongoose';
 
-const SiteSchema = new mongoose.Schema({
-  url: String,
-  createdAt: String,
-});
+interface Isite extends Document {
+  url: string;
+}
 
-export default mongoose.model('Site', SiteSchema);
+const SiteSchema = new Schema(
+  {
+    url: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default model<Isite>('Site', SiteSchema);
