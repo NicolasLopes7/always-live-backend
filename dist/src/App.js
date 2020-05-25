@@ -7,9 +7,16 @@ var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var mongoose_1 = __importDefault(require("mongoose"));
 var routes_1 = __importDefault(require("./routes"));
+require('dotenv').config();
 var App = /** @class */ (function () {
     function App() {
         this.express = express_1.default();
+        if (process.env.MONGO_DB_URL) {
+            this.mongoURL = process.env.MONGO_DB_URL;
+        }
+        else {
+            this.mongoURL = ' ';
+        }
         this.middlewares();
         this.routes();
         this.database();
@@ -19,7 +26,7 @@ var App = /** @class */ (function () {
         this.express.use(cors_1.default());
     };
     App.prototype.database = function () {
-        mongoose_1.default.connect('mongodb+srv://admin:admin@cluster0-xb1ss.mongodb.net/alwayslive?retryWrites=true&w=majority', {
+        mongoose_1.default.connect(this.mongoURL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });

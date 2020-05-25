@@ -40,6 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Site_1 = __importDefault(require("../models/Site"));
+require('dotenv').config();
 exports.default = {
     store: function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
@@ -69,6 +70,7 @@ exports.default = {
                     case 0: return [4 /*yield*/, Site_1.default.find()];
                     case 1:
                         sites = _a.sent();
+                        console.log(process.env.SECRET_KEY);
                         return [2 /*return*/, res.json(sites)];
                 }
             });
@@ -91,6 +93,19 @@ exports.default = {
                         _b.sent();
                         return [2 /*return*/, res.sendStatus(200)];
                     case 3: return [2 /*return*/, res.sendStatus(401)];
+                }
+            });
+        });
+    },
+    count: function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var qtdSites;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Site_1.default.estimatedDocumentCount()];
+                    case 1:
+                        qtdSites = _a.sent();
+                        return [2 /*return*/, res.json({ qtdSites: qtdSites })];
                 }
             });
         });

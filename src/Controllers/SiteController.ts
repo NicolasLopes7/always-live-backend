@@ -41,4 +41,10 @@ export default {
 
     return res.sendStatus(401);
   },
+
+  async count(req: Request, res: Response) {
+    const qtdSites: number = await Site.estimatedDocumentCount();
+
+    return res.json({ qtdSites });
+  },
 };

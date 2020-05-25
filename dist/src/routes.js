@@ -9,6 +9,7 @@ var PingToAll_1 = __importDefault(require("./services/PingToAll"));
 var routes = express_1.Router();
 routes.post('/addSite', SiteController_1.default.store);
 routes.get('/getSites', SiteController_1.default.index);
+routes.get('/getQtd', SiteController_1.default.count);
 routes.delete('/deleteSite', SiteController_1.default.delete);
 routes.get('/pingToAll', PingToAll_1.default.ping);
 exports.default = routes;
