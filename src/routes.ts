@@ -1,8 +1,7 @@
 import { Router } from 'express';
 
-import SiteController from '~/Controllers/SiteController';
-// eslint-disable-next-line import/no-unresolved
-import PingToAll from '~/services/pingToAll';
+import SiteController from './Controllers/SiteController';
+import PingToAll from './services/PingToAll';
 
 const routes = Router();
 
