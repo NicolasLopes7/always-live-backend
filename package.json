@@ -6,7 +6,12 @@
   "author": "Nicolas Lopes Aquino <nicolaslopesbusiness@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./dist/src/server.js"
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node dist/src/server.js",
+    "watch-node": "nodemon dist/src/server.js",
+    "watch-ts": "tsc -w"
   },
   "dependencies": {
     "axios": "^0.19.2",
