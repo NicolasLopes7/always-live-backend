@@ -3,8 +3,6 @@ import { Router } from 'express';
 import SiteController from './Controllers/SiteController';
 import PingToAll from './services/PingToAll';
 
-console.log('entrou');
-
 const routes = Router();
 
 routes.post('/addSite', SiteController.store);
