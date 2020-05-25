@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import SiteController from './Controllers/SiteController';
-import PingToAll from './services/PingToAll';
+import PingToAll from './services/pingToAll';
 
 const routes = Router();
 
