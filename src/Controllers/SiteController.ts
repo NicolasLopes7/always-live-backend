@@ -16,9 +16,10 @@ export default {
 
     if (!site) {
       site = await Site.create({ url });
+      return res.json({ id: site.id, url: site.url });
     }
 
-    return res.json({ id: site.id, url: site.url });
+    return res.sendStatus(404);
   },
 
   async index(req: Request, res: Response) {

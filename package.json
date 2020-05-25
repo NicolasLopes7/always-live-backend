@@ -20,8 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "lodash.template": "^4.5.0",
-    "mongoose": "^5.9.15",
-    "react-bootstrap": "^1.0.1"
+    "mongoose": "^5.9.15"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
