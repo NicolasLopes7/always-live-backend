@@ -2,6 +2,8 @@
 import { Request, Response } from 'express';
 import Site from '../models/Site';
 
+require('dotenv').config();
+
 interface IstoreParams {
   url: string;
   id?: string;
@@ -21,7 +23,7 @@ export default {
 
   async index(req: Request, res: Response) {
     const sites = await Site.find();
-
+    console.log(process.env.SECRET_KEY);
     return res.json(sites);
   },
 

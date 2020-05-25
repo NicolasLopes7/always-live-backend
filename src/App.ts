@@ -3,11 +3,21 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import routes from './routes';
 
+require('dotenv').config();
+
 class App {
   public express: express.Application;
 
+  public mongoURL: string;
+
   public constructor() {
     this.express = express();
+    if (process.env.MONGO_DB_URL) {
+      this.mongoURL = process.env.MONGO_DB_URL;
+    } else {
+      this.mongoURL = ' ';
+    }
+
     this.middlewares();
     this.routes();
     this.database();
@@ -19,13 +29,10 @@ class App {
   }
 
   private database() {
-    mongoose.connect(
-      'mongodb+srv://admin:admin@cluster0-xb1ss.mongodb.net/alwayslive?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      }
-    );
+    mongoose.connect(this.mongoURL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   }
 
   private routes() {
