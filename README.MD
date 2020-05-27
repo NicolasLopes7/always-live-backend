@@ -1,10 +1,10 @@
 # Alive Always - Backend
   [![Languages](https://img.shields.io/github/languages/count/NicolasLopes7/always-live-backend?style=flat-square)](#) [![Size](https://img.shields.io/github/repo-size/NicolasLopes7/always-live-backend?style=flat-square)]()
 
-  ### This API it's responsible for https://alive-always-heroku.netlify.app/ a completely free service that doesn't let your application on heroku sleep.
+  #### This API it's responsible for https://alive-always-heroku.netlify.app/ a completely free service that doesn't let your application on heroku sleep.
 ----------
   ## The structure
-  ### We have a class "App" and this is responsible to connect our application:
+  #### We have a class "App" and this is responsible to connect our application:
   ```typescript
   import express from 'express';
 import cors from 'cors';
@@ -50,7 +50,7 @@ require('dotenv').config();
 export default new App().express;
 ```
 ## Routes
-### To have more security in the application, we have the database URL in an .env file. This Class imports the "routes.js" that contains our routes:
+#### To have more security in the application, we have the database URL in an .env file. This Class imports the "routes.js" that contains our routes:
 ```js
 POST /addSite
 {
@@ -75,7 +75,7 @@ GET /pingToAll
 returns the 200 statusCode
 ```
 ## The magic happens here
-### Going to the services, we found the Api.ts (Create axios instance) and PingtoAll.ts, This file contains the ping function, which goes through all the urls in the database and sends a request to the endpoint /
+#### Going to the services, we found the Api.ts (Create axios instance) and PingtoAll.ts, This file contains the ping function, which goes through all the urls in the database and sends a request to the endpoint /
 ```typescript
 async ping(req: Request, res: Response) {
     const sites = await Site.find();
@@ -90,7 +90,7 @@ async ping(req: Request, res: Response) {
   }
   ```
 ## Database
-### I'm using MongoDB, and to host out from my machine the MongoDB Atlas a very good and free service to host small databases (https://www.mongodb.com/cloud/atlas). At the models we found a simple Schema of Site which only contains the url and a typescript interface.
+#### I'm using MongoDB, and to host out from my machine the MongoDB Atlas a very good and free service to host small databases (https://www.mongodb.com/cloud/atlas). At the models we found a simple Schema of Site which only contains the url and a typescript interface.
 ```typescript
 interface Isite extends Document {
   url: string;
@@ -108,6 +108,6 @@ const SiteSchema = new Schema(
 export default model<Isite>('Site', SiteSchema);
 ```
 ## Controller
-### And finally we have only one controller for site, this is a very simple CRUD you can see more of this here [SiteController.ts](src/Controllers/SiteController.ts)
+#### And finally we have only one controller for site, this is a very simple CRUD you can see more of this here [SiteController.ts](src/Controllers/SiteController.ts)
 
 ## Enjoy this API, fork and contribute :)
